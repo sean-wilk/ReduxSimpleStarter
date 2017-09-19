@@ -10,12 +10,20 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input
-          value = {this.state.term}
-          onChange={event => this.setState({ term: event.target.value })} />
+        <img className="header-img img-responsive center-block" src="./images/youtube-instant-logo.svg" />
+        <div className="search-bar">
+          <input
+            value = {this.state.term}
+            onChange={event => this.onInputChange(event.target.value)} />
+        </div>
       </div>
     )
   };
+
+  onInputChange(term) {
+    this.setState({term});
+    this.props.onSearchTermChange(term);
+  }
 }
 
 export default SearchBar;
